@@ -20,5 +20,11 @@ Derrick Lui, Aaron Wang, Raymond Wu
  - Backend: Aaron
  - Middleware: All
 
+**Deadlines**
+- 10/9/15 Weekend
+  - Raymond - complete basic templates and forms
+  - Aaron - work on backend python (session stuff, logins, utils)
+  - Derrick - work on integration with Sqlite3 (python -> sqlite3)
+
 
 
