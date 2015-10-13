@@ -28,7 +28,7 @@ def login2():
     
     if util.authenticate(user,password):
         session['n'] = True
-        return redirect(url_for("home", message = "you have successfully logged in"))
+        return redirect(url_for("login", message = "you have successfully logged in"))
         
     return render_template("login", message = "incorrect username or password")
     
