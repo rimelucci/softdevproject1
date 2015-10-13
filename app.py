@@ -23,24 +23,19 @@ def login2():
     password = request.form['password']
     button = request.form['button']
 
+    if 'n' not in session:
+        session['n'] = False
+    
     if util.authenticate(user,password):
-        if user not in session:
-            session['n'] = True
-            return redirect(url_for("home"))
-   # else:
-   #     if user not in session:
-   #         session[user] = False
-   #         error = "invalid username or password"
-
-#add an Error message to the login page when it's incorrect
-
-    return redirect(url_for("home"))
-
-#for basic purposes, user = "admin" and password = "password"
+        session['n'] = True
+        return redirect(url_for("home", message = "you have successfully logged in"))
+        
+    return render_template("login", message = "incorrect username or password")
+    
 
 @app.route("/reset")
 def reset():
-    session['user'] = False
+    session['n'] = False
     return redirect(url_for("home"))
 
 
