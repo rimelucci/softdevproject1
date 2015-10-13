@@ -1,4 +1,5 @@
 from flask import Flask, render_template, session, redirect, url_for, request
+import util
 
 app = Flask(__name__)
 
@@ -12,7 +13,6 @@ def about():
     return render_template("about.html")
 
 
-
 @app.route("/login", methods = ["GET"])
 def login():
     return render_template("login.html")
@@ -23,9 +23,10 @@ def login2():
     password = request.form['password']
     button = request.form['button']
 
-    if utils.authenticate(user,password):
+    if util.authenticate(user,password):
         if user not in session:
-            session[user] = True 
+            session[user] = True
+            
    # else:
    #     if user not in session:
    #         session[user] = False
