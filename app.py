@@ -25,8 +25,8 @@ def login2():
 
     if util.authenticate(user,password):
         if user not in session:
-            session[user] = True
-            
+            session['n'] = True
+            return redirect(url_for("home"))
    # else:
    #     if user not in session:
    #         session[user] = False
