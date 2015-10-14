@@ -12,9 +12,13 @@ def home():
 def about():
     return render_template("about.html", session=session)
 
+@app.route("/story")
+def story():
+    return render_template("story.html")
 
 @app.route("/login", methods = ["GET"])
 def login():
+    
     return render_template("login.html")
 
 @app.route("/login", methods = ["POST"])
