@@ -13,4 +13,13 @@ def makePost(username,title,body):
     conn.commit()
     return True;
     #adds a post to the database based on parameters
-    
+
+def getAllPosts():
+    conn = sqlite3.connect("myDataBase.db")
+    c = conn.cursor()
+    c.execute('select * from posts;')
+    return c.fetchall();
+    #2d array 
+    #first index = row id
+    #second index - 0=name, 1=title, 2=body
+

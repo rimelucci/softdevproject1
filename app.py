@@ -34,6 +34,23 @@ def login2():
     return render_template("login.html")
     
 
+@app.route("/new", methods=['GET','POST'])
+def newpost():
+    if request.method=="GET":
+        return render_template("newpost.html")
+    else:
+        username=session['n']
+        button=request.form['button']
+        title=request.form['nTitle']
+        content=request.form['nContent']
+        if button=="submit":
+            util.makePost(username,title,nTitle)
+            return redirect(url_for('story'))
+        if button=="cancel":
+            return redirect(url_for('home'))
+        return render_template('newpost.html')
+
+
 @app.route("/reset")
 def reset():
     session['n'] = False
