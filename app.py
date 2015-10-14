@@ -1,4 +1,4 @@
-from flask import Flask, render_template, session, redirect, url_for, request
+from flask import Flask, render_template, session, redirect, url_for, request, flash
 import util
 
 app = Flask(__name__)
@@ -28,9 +28,10 @@ def login2():
     
     if util.authenticate(user,password):
         session['n'] = True
-        return redirect(url_for("login", message = "you have successfully logged in"))
-        
-    return render_template("login", message = "incorrect username or password")
+        flash("you were successfully logged in")
+        return redirect(url_for("home"))
+    flash("invalid username or password")
+    return render_template("login.html")
     
 
 @app.route("/reset")
