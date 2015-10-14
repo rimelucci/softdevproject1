@@ -46,7 +46,7 @@ def newpost():
         title=request.form['nTitle']
         content=request.form['nContent']
         if button=="Post":
-            util.makePost(username,title,nTitle)
+            util.makePost(username,title,content)
             return redirect(url_for('story'))
         if button=="cancel":
             return redirect(url_for('home'))
