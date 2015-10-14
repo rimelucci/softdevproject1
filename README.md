@@ -26,5 +26,12 @@ Derrick Lui, Aaron Wang, Raymond Wu
   - Aaron - work on backend python (session stuff, logins, utils)
   - Derrick - work on integration with Sqlite3 (python -> sqlite3)
 
+- 10/13/15
+  - Raymond - add additional pages (newposts, stories)
+  - Aaron - work on session and login messages
+  - Derrick - implement templates and integrate w/ sqlite3 to create/view posts
+  
+
+
 
 
