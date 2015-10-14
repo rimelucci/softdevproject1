@@ -6,11 +6,11 @@ app = Flask(__name__)
 @app.route("/")
 @app.route("/home")
 def home():
-    return render_template("home.html")
+    return render_template("home.html", session=session)
 
 @app.route("/about")
 def about():
-    return render_template("about.html")
+    return render_template("about.html", session=session)
 
 
 @app.route("/login", methods = ["GET"])
@@ -31,7 +31,7 @@ def login2():
         flash("you were successfully logged in")
         return redirect(url_for("home"))
     flash("invalid username or password")
-    return render_template("login.html")
+    return render_template("login.html", session=session)
     
 
 @app.route("/newpost", methods=['GET','POST'])
@@ -50,12 +50,12 @@ def newpost():
             return redirect(url_for('home'))
         if button=="cancel":
             return redirect(url_for('home'))
-        return render_template('newpost.html')
+        return render_template('newpost.html', session=session)
 
 
 @app.route("/reset")
 def reset():
-    session['n'] = False
+    session.clear();
     return redirect(url_for("home"))
 
 
