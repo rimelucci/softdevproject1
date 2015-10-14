@@ -34,16 +34,18 @@ def login2():
     return render_template("login.html")
     
 
-@app.route("/new", methods=['GET','POST'])
+@app.route("/newpost", methods=['GET','POST'])
 def newpost():
     if request.method=="GET":
         return render_template("newpost.html")
     else:
-        username=session['n']
+        if 'n' in session:
+            username="Bob"
+        #username=session['n']
         button=request.form['button']
         title=request.form['nTitle']
         content=request.form['nContent']
-        if button=="submit":
+        if button=="Post":
             util.makePost(username,title,nTitle)
             return redirect(url_for('story'))
         if button=="cancel":
