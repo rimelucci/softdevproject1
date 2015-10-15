@@ -18,11 +18,14 @@ def story():
     str=""
     stories=util.getAllPosts()
     for item in stories:
-        str+="<h1> <a href='story/%s'> %s</a> </h1>" %(item[1], item[1])
-        str+="<h2> Posted by: %s </h2>" %item[0]
-        str+="<h3> %s </h3>" %item[2] + "<hr>"
+        str+="<div class="col-md-offset-2 col-md-8 row">"
+        str+="<h2 class="text-primary text-center"> %s </h2>" %(item[1])
+        str+="<blockquote>"
+        str+="<p class="text-muted">Lorem ipsum dolor sit amet</p>"
+        str+="<footer class="text-info">%s</footer>" %(item[0])
+        str+="</blockquote>"
+        str+="</div>"
         
-    str= Markup(str)
 
     return render_template("story.html", link=str)
    # return render_template("story.html")
