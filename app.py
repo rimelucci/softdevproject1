@@ -18,16 +18,15 @@ def story():
     str=""
     stories=util.getAllPosts()
     for item in stories:
-        str+="<div class="col-md-offset-2 col-md-8 row">"
-        str+="<h2 class="text-primary text-center"> %s </h2>" %(item[1])
+        str+='"<div class="col-md-offset-2 col-md-8 row">'
+        str+='<h2 class="text-primary text-center"> %s </h2>' %(item[1])
         str+="<blockquote>"
-        str+="<p class="text-muted">Lorem ipsum dolor sit amet</p>"
-        str+="<footer class="text-info">%s</footer>" %(item[0])
+        str+='<p class="text-muted">Lorem ipsum dolor sit amet</p>'
+        str+='<footer class="text-info">%s</footer>' %(item[0])
         str+="</blockquote>"
         str+="</div>"
-        
 
-    return render_template("story.html", link=str)
+    return render_template("story.html", allposts=str)
    # return render_template("story.html")
 
 @app.route("/login", methods = ["GET"])
