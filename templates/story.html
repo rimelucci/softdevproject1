@@ -33,6 +33,9 @@
       	<ul class="nav navbar-nav navbar-right">
       		<li><a href="reset"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
       	</ul>
+				<ul class= "nav navbar-nav navbar-right">
+				  <li><a> Hello, {{session['username']}} </a></li>
+				</ul>
       	{% else %}
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
