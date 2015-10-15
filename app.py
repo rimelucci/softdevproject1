@@ -27,11 +27,8 @@ def login2():
     password = request.form['password']
     button = request.form['button']
 
-    if 'n' not in session:
-        session['n'] = False
-    
     if util.authenticate(user,password):
-        session['n'] = True
+        session['username'] = user
         flash("you were successfully logged in")
         return redirect(url_for("home"))
     flash("invalid username or password")
@@ -45,7 +42,7 @@ def newpost():
     else:
         if 'n' in session:
             username="Bob"
-        #username=session['n']
+        username=session['n']
         button=request.form['button']
         title=request.form['nTitle']
         content=request.form['nContent']
@@ -59,7 +56,8 @@ def newpost():
 
 @app.route("/reset")
 def reset():
-    session.clear();
+    #works whether or not 'username' is in session
+    session.pop('username', None);
     return redirect(url_for("home"))
 
 
