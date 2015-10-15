@@ -53,14 +53,12 @@ def newpost():
     if request.method=="GET":
         return render_template("newpost.html")
     else:
-        if 'n' in session:
-            username="Bob"
-        username=session['n']
+        uname=session['username']
         button=request.form['button']
         title=request.form['nTitle']
         content=request.form['nContent']
         if button=="Post":
-            util.makePost(username,title,content)
+            util.makePost(uname,title,content)
             return redirect(url_for('home'))
         if button=="cancel":
             return redirect(url_for('home'))
@@ -68,6 +66,7 @@ def newpost():
 
 
 @app.route("/reset")
+@app.route("/logout")
 def reset():
     #works whether or not 'username' is in session
     session.pop('username', None);

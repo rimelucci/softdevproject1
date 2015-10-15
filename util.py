@@ -31,7 +31,6 @@ def makePost(username,title,body):
     c = conn.cursor()
     ans = c.execute('INSERT INTO posts VALUES("'+username+'","'+title+'","'+body+'");')
     conn.commit()
-    return True;
     #adds a post to the database based on parameters
 
 def getAllPosts():
