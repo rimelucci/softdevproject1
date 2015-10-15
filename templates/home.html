@@ -28,9 +28,12 @@
 				<ul class="nav navbar-nav">
 					<li><a href="story">Read the Stories</a></li>
 				</ul>
-				{% if 'n' in session %}
+				{% if 'username' in session %}
 				<ul class="nav navbar-nav">
 					<li><a href="newpost">Add A Story</a></li>
+				</ul>
+				<ul class= "nav navbar-nav navbar-right">
+				  <li> Hello, {{session['username']}} </li>
 				</ul>
 	      		<ul class="nav navbar-nav navbar-right">
 	      			<li><a href="reset"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
