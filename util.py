@@ -34,7 +34,7 @@ def makePost(username,title,body):
     #adds a post to the database based on parameters
 
 def getAllPosts():
-    conn = sqlite3.connect("databases/myDataBase.db")
+    conn = sqlite3.connect("databases/myDatabase.db")
     c = conn.cursor()
     c.execute('select * from posts;')
     return c.fetchall();
