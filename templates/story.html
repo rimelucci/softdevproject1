@@ -23,10 +23,10 @@
 				<ul class="nav navbar-nav">
 					<li><a href="about">About</a></li>
 				</ul>
+				{% if 'username' in session %}
 				<ul class="nav navbar-nav">
 					<li><a href="story">Read the Stories</a></li>
 				</ul>
-				{% if 'username' in session %}
 				<ul class="nav navbar-nav">
 					<li><a href="newpost">Add A Story</a></li>
 				</ul>
