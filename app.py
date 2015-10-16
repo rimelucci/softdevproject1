@@ -1,4 +1,4 @@
-from flask import Flask, render_template, session, redirect, url_for, request, flash
+from flask import Flask, render_template, session, redirect, url_for, request, flash, Markup
 import util
 
 app = Flask(__name__)
@@ -25,6 +25,8 @@ def story():
         str+='<footer class="text-info">%s</footer>' %(item[0])
         str+="</blockquote>"
         str+="</div>"
+
+    str = Markup(str)
 
     return render_template("story.html", allposts=str)
    # return render_template("story.html")
