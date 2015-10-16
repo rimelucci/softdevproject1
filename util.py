@@ -3,7 +3,8 @@ import hashlib
 
 def initializeTables():
     #create the user table in user.db if the table does not already exist
-    conn = sqlite.connect("databases/users.db")
+    conn = sqlite3.connect("databases/users.db")
+    c = conn.cursor()
     c.execute('''
     CREATE TABLE IF NOT EXISTS users
     (username text, password text)
@@ -12,7 +13,8 @@ def initializeTables():
     conn.close()
 
     #create the posts table in myDatabase.db if the table does not already exist
-    conn = sqlite.connect("databases/myDatabase.db")
+    conn = sqlite3.connect("databases/myDatabase.db")
+    c = conn.cursor()
     c.execute('''
     CREATE TABLE IF NOT EXISTS posts 
     (username text, title text, body text)
