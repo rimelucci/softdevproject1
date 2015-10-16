@@ -1,10 +1,33 @@
 import sqlite3
 import hashlib
 
+def initializeTables():
+    #create the user table in user.db if the table does not already exist
+    conn = sqlite.connect("databases/users.db")
+    c.execute('''
+    CREATE TABLE IF NOT EXISTS users
+    (username text, password text)
+    ''')
+    conn.commit()
+    conn.close()
+
+    #create the posts table in myDatabase.db if the table does not already exist
+    conn = sqlite.connect("databases/myDatabase.db")
+    c.execute('''
+    CREATE TABLE IF NOT EXISTS posts 
+    (username text, title text, body text)
+    ''')
+    conn.commit()
+    conn.close()
+
 def authenticate(username,password):
     conn = sqlite3.connect("databases/users.db")
     c = conn.cursor()
+    c.execute('''
     
+    ''')
+    conn.commit()
+    conn.closer()
     #the users.db file should contain the username and the hashed password
     #passwords stored as hashlib.sha224(<password>).hexdigest()
 
