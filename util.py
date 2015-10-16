@@ -27,7 +27,7 @@ def authenticate(username,password):
     
     ''')
     conn.commit()
-    conn.closer()
+    conn.close()
     #the users.db file should contain the username and the hashed password
     #passwords stored as hashlib.sha224(<password>).hexdigest()
 
