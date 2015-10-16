@@ -75,6 +75,11 @@ def reset():
     session.pop('username', None);
     return redirect(url_for("home"))
 
+@app.route("/register", methods=['GET','POST']
+def register():
+	if request.method=="GET":
+		return render_template("register.html")
+
 
 if __name__ == "__main__":
     app.debug = True
