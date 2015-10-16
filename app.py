@@ -19,9 +19,9 @@ def story():
     stories=util.getAllPosts()
     for item in stories:
         str+='"<div class="col-md-offset-2 col-md-8 row">'
-        str+='<h2 class="text-primary text-center"> %s </h2>' %(item[1])
+        str+='<h2 class="text-primary"> %s </h2>' %(item[1])
         str+="<blockquote>"
-        str+='<p class="text-muted">Lorem ipsum dolor sit amet</p>'
+        str+='<p class="text-muted">%s</p>' %(item[2])
         str+='<footer class="text-info">%s</footer>' %(item[0])
         str+="</blockquote>"
         str+="</div>"
