@@ -50,9 +50,13 @@
 	<br><br><br>
 	{% with messages = get_flashed_messages() %}
 	{% if messages %}
+	<hr>
+	<h4 class="text-muted text-center">
 	{% for message in messages %}
 	{{message}}
 	{% endfor %}	
+	</h4>
+	</hr>
 	{% endif %}
 	{% endwith %}
 </body>
