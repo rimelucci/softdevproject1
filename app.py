@@ -17,7 +17,7 @@ def story():
 #generates html for displaying the title as a link
     str=""
     stories=util.getAllPosts()
-    for item in stories:
+    for item in reversed(stories):
         str+='"<div class="col-md-offset-2 col-md-8 row">'
         str+='<h2 class="text-primary"> %s </h2>' %(item[1])
         str+="<blockquote>"
