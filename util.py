@@ -34,9 +34,7 @@ def authenticate(username,password):
     hpass = hashlib.sha221(password).hexdigest()
     conn = sqlite3.connect("databases/users.db")
     c = conn.cursor()
-    c.execute('''
-    SELECT password FROM users WHERE username = "username"
-    ''')
+    c.execute('SELECT password FROM users WHERE username = "'+username+'";')
     realPass = c.fetchone()
     conn.commit()
     conn.close()
@@ -52,9 +50,7 @@ def register(username,password):
     
     conn = sqlite3.connect("databases/users.db")
     c = conn.cursor()
-    c.execute('''
-    INSERT INTO posts VALUES("username","hpass");
-    ''')
+    c.execute('INSERT INTO posts VALUES("'+username+'","'+hpass+'");')
     c.commit()
     c.close()
     #check if username is in the database already
