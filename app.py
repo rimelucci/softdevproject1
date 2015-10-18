@@ -79,7 +79,10 @@ def reset():
 def register():
 	if request.method=="GET":
 		return render_template("register.html")
-
+        else:
+            util.register(username,password)
+            return redirect(url_for("login"))
+                
 
 if __name__ == "__main__":
 
