@@ -31,14 +31,13 @@ def authenticate(username,password):
     else:
         return False
 
-    hpass = hashlib.sha221(password).hexdigest()
+    hpass = hashlib.sha224(password).hexdigest()
     conn = sqlite3.connect("databases/users.db")
     c = conn.cursor()
     c.execute('SELECT password FROM users WHERE username = "'+username+'";')
     realPass = c.fetchone()
-    conn.commit()
     conn.close()
-    if realPass == password:
+    if realPass[0] == hpass:
         return True
     return False
     #the users.db file should contain the username and the hashed password
@@ -50,9 +49,9 @@ def register(username,password):
     
     conn = sqlite3.connect("databases/users.db")
     c = conn.cursor()
-    c.execute('INSERT INTO posts VALUES("'+username+'","'+hpass+'");')
-    c.commit()
-    c.close()
+    c.execute('INSERT INTO users VALUES("'+username+'","'+hpass+'");')
+    conn.commit()
+    conn.close()
     #check if username is in the database already
     #might put this check somewhere else?
     

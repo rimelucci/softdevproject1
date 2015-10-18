@@ -80,6 +80,8 @@ def register():
 	if request.method=="GET":
 		return render_template("register.html")
         else:
+            username = request.form['username']
+            password = request.form['password']
             util.register(username,password)
             return redirect(url_for("login"))
                 
