@@ -22,4 +22,6 @@ div.reg p{
 	font-size:60;
 	color: lavender;
 	font-family: "Comic Sans MS", cursive, sans-serif;
+	background-color: black; 
+	opacity:0.8;
 }
