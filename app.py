@@ -26,7 +26,7 @@ def story():
         str+='"<div class="col-md-offset-2 col-md-8 row" style="background-color:black; opacity:0.6">'
         str+='<h2 class="text-primary"> %s </h2>' %(item[1])
         str+="<blockquote>"
-        str+='<p class="text-muted">%s</p>' %(item[2])
+        str+='<p class="text-warning">%s</p>' %(item[2])
         str+='<footer class="text-info">%s</footer>' %(item[0])
         str+="</blockquote>"
         str+="</div>"
