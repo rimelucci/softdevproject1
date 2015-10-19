@@ -41,6 +41,15 @@ def authenticate(username,password):
     #the users.db file should contain the username and the hashed password
     #passwords stored as hashlib.sha224(<password>).hexdigest()
 
+def registerCheck(username):
+    conn = sqlite3.connect("databases/users.db")
+    c = conn.cursor()
+    ans = c.execute('SELECT * FROM users WHERE username = "'+username+'";')
+    for r in ans:
+        return False
+    return True
+    #if user exists in database, returns False
+
  
 def register(username,password):
     hpass = hashlib.sha224(password).hexdigest()
