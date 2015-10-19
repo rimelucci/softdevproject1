@@ -23,21 +23,19 @@ def initializeTables():
     conn.close()
 
 
-#authenicate checks the usernames and if the hash of the password matches with the password already in the database
+#authenticate checks the usernames and if the hash of the password matches with the password already in the database
 #returns true or false
 def authenticate(username,password):
-    if (username == "admin" and password == "password"):
-        return True
-    else:
-        return False
+#    if (username == "admin" and password == "password"):
+#        return True
+#    else:
+#        return False
 
     hpass = hashlib.sha224(password).hexdigest()
     conn = sqlite3.connect("databases/users.db")
     c = conn.cursor()
-    c.execute('SELECT password FROM users WHERE username = "'+username+'";')
-    realPass = c.fetchone()
-    conn.close()
-    if realPass[0] == hpass:
+    ans = c.execute('SELECT * FROM users WHERE username = "'+username+'" and password = "'+hpass+'";')
+    for r in ans:
         return True
     return False
     #the users.db file should contain the username and the hashed password
