@@ -86,7 +86,8 @@ def register():
                 util.register(username,password)
                 return redirect(url_for("login"))
             else:
-                return redirect(url_for("home"))
+                flash("please choose a different username")
+                return redirect(url_for("register"))
 
 if __name__ == "__main__":
 
