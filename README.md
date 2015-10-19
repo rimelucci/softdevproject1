@@ -39,7 +39,13 @@ Derrick Lui, Aaron Wang, Raymond Wu
 - 10/16/15 Weekend (FINAL WEEKEND)
   - Raymond - Finish up visual design
   - Aaron - Register and Login using database
-  - Derrick - Unique titles, deleting posts, editing posts, read SQL from oldest to newest
+  - Derrick - Read SQL from oldest to newest, fix registering
+
+- 10/18/15 (Final day!)
+  - Raymond - Make it pretty
+  - Aaron - Finalized registering and logins
+  - Derrick - Helping Aaron debug stuff
+  
   
 
 

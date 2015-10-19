@@ -62,7 +62,7 @@ def newpost():
         content=request.form['nContent']
         if button=="Post":
             util.makePost(uname,title,content)
-            return redirect(url_for('home'))
+            return redirect(url_for('story'))
         if button=="cancel":
             return redirect(url_for('home'))
         return render_template('newpost.html', session=session)
@@ -82,9 +82,11 @@ def register():
         else:
             username = request.form['username']
             password = request.form['password']
-            util.register(username,password)
-            return redirect(url_for("login"))
-                
+            if util.registerCheck(username):
+                util.register(username,password)
+                return redirect(url_for("login"))
+            else:
+                return redirect(url_for("home"))
 
 if __name__ == "__main__":
 
