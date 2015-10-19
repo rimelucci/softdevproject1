@@ -12,14 +12,12 @@ div.transbox{
 }
 
 div.title h1{
-	font-size:60;
 	font-weight:bold;
 	color: lavender;
 	font-family: "Comic Sans MS", cursive, sans-serif;
 }
 
-div.reg p{
-	font-size:60;
+div.reg h3{
 	color: lavender;
 	font-family: "Comic Sans MS", cursive, sans-serif;
 }
