@@ -8,6 +8,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="../static/styles.css">
+
 </head>
 <body>
 	<nav class="navbar navbar-inverse navbar-fixed-top">
@@ -34,12 +35,11 @@
 	<br><br><br>
 	<div class="col-md-offset-4 col-md-4"> 
 		<h3 class="text-primary text-center">Hello New User</h3>
-		<h4 class="text-muted text-center">Please choose your Username and Password</h4>
-	</div>
+		<h4 class="text-warning text-center">Please choose your Username and Password</h4>
 	{% with messages = get_flashed_messages() %}
 	{% if messages %}
 	<hr>
-	<h4 class="text-muted text-center">
+	<h4 class="text-warning text-center">
 	{% for message in messages %}
 	{{message}}
 	{% endfor %}	
@@ -47,6 +47,7 @@
 	<hr>
 	{% endif %}
 	{% endwith %}
+	</div>
 	<form class="form-horizontal" role="form" method="POST">
 		<div class="form-group">
 			<div class="col-md-offset-5 col-md-2">
