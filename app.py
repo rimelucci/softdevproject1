@@ -50,9 +50,9 @@ def login2():
 
     if util.authenticate(user,password):
         session['username'] = user
-        flash("you were successfully logged in")
+        flash("You were successfully logged in")
         return redirect(url_for("home"))
-    flash("invalid username or password")
+    flash("Invalid Username or Password")
     return render_template("login.html", session=session)
     
 
@@ -91,7 +91,7 @@ def register():
                 util.register(username,password)
                 return redirect(url_for("login"))
             else:
-                flash("please choose a different username")
+                flash("Please choose a different Username")
                 return redirect(url_for("register"))
 
 if __name__ == "__main__":
