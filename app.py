@@ -17,6 +17,11 @@ def story():
 #generates html for displaying the title as a link
     str=""
     stories=util.getAllPosts()
+    if not stories:
+        str+='<br><br>'
+        str+='"<div class="col-md-offset-2 col-md-8 row">'
+        str+='<h2 class="text-primary text-center"> %s </h2>' %("Add a story above!")
+        str+='</div>'
     for item in reversed(stories):
         str+='"<div class="col-md-offset-2 col-md-8 row">'
         str+='<h2 class="text-primary"> %s </h2>' %(item[1])
