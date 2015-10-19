@@ -23,7 +23,7 @@ def story():
         str+='<h2 class="text-primary text-center"> %s </h2>' %("Add a story above!")
         str+='</div>'
     for item in reversed(stories):
-        str+='"<div class="col-md-offset-2 col-md-8 row">'
+        str+='"<div class="col-md-offset-2 col-md-8 row" style="background-color:black; opacity:0.6">'
         str+='<h2 class="text-primary"> %s </h2>' %(item[1])
         str+="<blockquote>"
         str+='<p class="text-muted">%s</p>' %(item[2])
