@@ -1,3 +1,4 @@
+{% extends "blocks.html" %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +14,9 @@
 </head>
 
 <body>
-<!-----------------------START NAV CODE -------------------------------->
+    {%block generalnavbar%}
+    {%endblock generalnavbar%}
+<!-----------------------START NAV CODE --------------------------------
 	<nav class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container-fluid">
 			<div class="navbar-header">
@@ -50,7 +53,7 @@
 			</div>
 		</div>
 	</nav>
-    <!-----------------------END NAV CODE -------------------------------->
+    -----------------------END NAV CODE -------------------------------->
 	<br><br><br>
     
 	{% with messages = get_flashed_messages() %}
