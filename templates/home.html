@@ -15,7 +15,7 @@
 
 	<br><br><br>
     {% block main %}
-    
+    <div style="margin-top: 5%">
         {% with messages = get_flashed_messages() %}
             {% if messages %}
             <hr>
@@ -29,13 +29,10 @@
         {% endwith %}
 
 
-        <br><br><br>
-
-
         <div class="transbox col-md-offset-4 col-md-4" style="font-family:Impact, Charcoal, sans-serif;">
                     <h1 class="text-primary text-center">Welcome to RadBlog!</h1>
                     <h3 class="text-warning text-center">The Hottest Blog on the Net</h3>
         </div>
-    
+    </div>
     {% endblock main %}
 
