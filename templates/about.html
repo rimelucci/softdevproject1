@@ -1,19 +1,19 @@
+{% extends "blocks.html" %}
+
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html style="height: 100%">
   <title>About RadBlog</title>
-  <!-----------------------START HEADER + BOOTSTRAP CODE -------------------------------->
+  <!-----------------------START HEADER + BOOTSTRAP CODE --------------------------------
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="../static/styles.css">
-  <!-----------------------END HEADER + BOOTSTRAP CODE -------------------------------->
-</head>
+  -----------------------END HEADER + BOOTSTRAP CODE -------------------------------->
     
-<body>
-<!-----------------------START NAV CODE -------------------------------->
+
+<!-----------------------START NAV CODE --------------------------------
 	<nav class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container-fluid">
 			<div class="navbar-header">
@@ -50,20 +50,24 @@
 			</div>
 		</div>
 	</nav>
-<!--------------------END NAV CODE--------------------------------------->
+--------------------END NAV CODE--------------------------------------->
 	<br><br><br>
     
-	<div class="col-md-offset-2 col-md-4 title">
-		<h1>About the Creators</h1>
-	</div>
-	<div class="col-md-offset-2 col-md-8 reg" style="background-color: black; opacity:0.8; font-family: "Comic Sans MS", cursive, sans-serif">
-		<h3>A blog project by Raymond Wu, Aaron Wang, and Derrick Lui</h3>
-		<h3>Functions Include:</h3>
-		<h3>Registering new users</h3>
-		<h3>Unique usernames</h3>
-		<h3>Logging in authentication</h3>
-		<h3>Password encryption</h3>
-		<h3>Post creation</h3>
-		<h3>Logging out</h3>
-	</div>
-</body>
+    {% block main %}
+        <center><div class="container-fluid row" style="top: 50%">
+            <div class="col-md-offset-2 col-md-4 title">
+                <center><h1>About the Creators</h1></center>
+            </div>
+            <div class="col-md-offset-2 col-md-8 reg" style="background-color: black; opacity:0.8; font-family: Comic Sans MS, cursive, sans-serif">
+                <h3>A blog project by Raymond Wu, Aaron Wang, and Derrick Lui</h3>
+                <h3>Functions Include:</h3>
+                <h3>Registering new users</h3>
+                <h3>Unique usernames</h3>
+                <h3>Logging in authentication</h3>
+                <h3>Password encryption</h3>
+                <h3>Post creation</h3>
+                <h3>Logging out</h3>
+            </div>
+        </div></center>
+    {% endblock main %}
+</html>
