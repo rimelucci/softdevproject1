@@ -1,28 +1,8 @@
-import pymongo
 import hashlib
+from pymongo import MongoClient
 
-#Mongo:
-
-#        You can use dictionaries like python
-
-#        Unlike python you can add and set with .
-
-#        db.<collection>.insert(x) inserts the dictionary x
-
-#        A list of dictionaries can be entered into a collection, which is really good
-
-#        db.<collection>.find() displays all
-
-#        db.<collection>.find({name : "  ", age : 30}) finds all with those aspects
-
-#        db.people.find({$or:[{name:"Dana"}, {age:{$gt:20}}]}) will look for anyone with that name or with age greater than 20
-
-#        db.people.update({name : "thomas"}, {$set:{age:50, last:"thompson"}}) finds anyone with name : "thomas" and sets their age to 50
-
-#        db.people.update({name:"Dana"}, {$inc:{age:5}})
-
-#        adding ,{upsert:true} before the last paren adds the person if they dont exist
-
+client = MongoClient()
+db = client.test_database
 
 def initializeTables():
     #create the user table in user.db if the table does not already exist
