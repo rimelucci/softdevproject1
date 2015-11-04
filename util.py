@@ -3,12 +3,25 @@ from pymongo import MongoClient
 
 client = MongoClient()
 
+<<<<<<< HEAD
 def initializeTables():
     #create the user table in user.db if the table does not already exist
 #    db.createCollection("users", {})
 
     #create the posts table in myDatabase.db if the table does not already exist
 #    db.createCollection("posts", {})
+=======
+#def initializeTables():
+ #   client = MongoClient()
+  #  db = client.test_database
+#
+ 
+   #create the user table in user.db if the table does not already exist
+ #   db.create_collection("users")
+
+    #create the posts table in myDatabase.db if the table does not already exist
+  #  db.create_collection("posts")
+>>>>>>> 44263750aab9688b9dc335a2c8558c68f66e0656
 
 
 #authenticate checks the usernames and if the hash of the password matches with the password already in the database
@@ -39,8 +52,13 @@ def registerCheck(username):
  
 def register(username,password):
     hpass = hashlib.sha224(password).hexdigest()
+<<<<<<< HEAD
     db = connection['Data']
     if (!registerCheck(username)):
+=======
+    
+    if (not (registerCheck(username))):
+>>>>>>> 44263750aab9688b9dc335a2c8558c68f66e0656
         db.users.insert({uname : username, pword : hpass})
     #check if username is in the database already
     #might put this check somewhere else?
