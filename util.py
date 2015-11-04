@@ -39,7 +39,7 @@ def registerCheck(username):
 def register(username,password):
     hpass = hashlib.sha224(password).hexdigest()
     
-    if (!registerCheck(username)):
+    if (not (registerCheck(username))):
         db.users.insert({uname : username, pword : hpass})
     #check if username is in the database already
     #might put this check somewhere else?
