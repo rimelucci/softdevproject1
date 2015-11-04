@@ -1,26 +1,14 @@
 import hashlib
 from pymongo import MongoClient
 
-connection = MongoClient()
+client = MongoClient()
 
-
-#def initializeTables():
+def initializeTables():
     #create the user table in user.db if the table does not already exist
 #    db.createCollection("users", {})
 
     #create the posts table in myDatabase.db if the table does not already exist
 #    db.createCollection("posts", {})
-
-#def initializeTables():
- #   client = MongoClient()
-  #  db = client.test_database
-#
- 
-   #create the user table in user.db if the table does not already exist
- #   db.create_collection("users")
-
-    #create the posts table in myDatabase.db if the table does not already exist
-  #  db.create_collection("posts")
 
 
 #authenticate checks the usernames and if the hash of the password matches with the password already in the database
@@ -33,7 +21,7 @@ def authenticate(username,password):
     db = connection['Data']
     hpass = hashlib.sha224(password).hexdigest()
 
-    ans = db.users.find({"uname" : username, "pword" : hpass})
+    ans = db.users.find({'uname' : username, 'pword' : hpass})
     for r in ans:
         return True
     return False
@@ -42,7 +30,7 @@ def authenticate(username,password):
 
 def registerCheck(username):
     db = connection['Data']
-    ans = db.users.find({"uname" : username})
+    ans = db.users.find({'uname' : username})
     for r in ans:
         return False
     return True
@@ -52,8 +40,8 @@ def registerCheck(username):
 def register(username,password):
     hpass = hashlib.sha224(password).hexdigest()
     db = connection['Data']
-    if (not (registerCheck(username))):
-        db.users.insert({"uname" : username, "pword" : hpass})
+    if (!registerCheck(username)):
+        db.users.insert({'uname' : username, 'pword' : hpass})
     #check if username is in the database already
     #might put this check somewhere else?
     
@@ -61,7 +49,7 @@ def register(username,password):
 
 def makePost(username,title,body):
     db = connection['Data']
-    db.posts.insert({"uname" : username, "title" : title, "body" : body})
+    db.posts.insert({'uname' : username, 'title' : title, 'body' : body})
     #adds a post to the database based on parameters
 
 def getAllPosts():
