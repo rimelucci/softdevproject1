@@ -1,16 +1,16 @@
 import hashlib
 from pymongo import MongoClient
 
-client = MongoClient()
+connection = MongoClient()
 
-<<<<<<< HEAD
-def initializeTables():
+
+#def initializeTables():
     #create the user table in user.db if the table does not already exist
 #    db.createCollection("users", {})
 
     #create the posts table in myDatabase.db if the table does not already exist
 #    db.createCollection("posts", {})
-=======
+
 #def initializeTables():
  #   client = MongoClient()
   #  db = client.test_database
@@ -21,7 +21,6 @@ def initializeTables():
 
     #create the posts table in myDatabase.db if the table does not already exist
   #  db.create_collection("posts")
->>>>>>> 44263750aab9688b9dc335a2c8558c68f66e0656
 
 
 #authenticate checks the usernames and if the hash of the password matches with the password already in the database
@@ -34,7 +33,7 @@ def authenticate(username,password):
     db = connection['Data']
     hpass = hashlib.sha224(password).hexdigest()
 
-    ans = db.users.find({uname : username, pword : hpass})
+    ans = db.users.find({"uname" : username, "pword" : hpass})
     for r in ans:
         return True
     return False
@@ -43,7 +42,7 @@ def authenticate(username,password):
 
 def registerCheck(username):
     db = connection['Data']
-    ans = db.users.find({uname : username})
+    ans = db.users.find({"uname" : username})
     for r in ans:
         return False
     return True
@@ -52,14 +51,9 @@ def registerCheck(username):
  
 def register(username,password):
     hpass = hashlib.sha224(password).hexdigest()
-<<<<<<< HEAD
     db = connection['Data']
-    if (!registerCheck(username)):
-=======
-    
     if (not (registerCheck(username))):
->>>>>>> 44263750aab9688b9dc335a2c8558c68f66e0656
-        db.users.insert({uname : username, pword : hpass})
+        db.users.insert({"uname" : username, "pword" : hpass})
     #check if username is in the database already
     #might put this check somewhere else?
     
@@ -67,7 +61,7 @@ def register(username,password):
 
 def makePost(username,title,body):
     db = connection['Data']
-    db.posts.insert({uname : username, title : title, body : body})
+    db.posts.insert({"uname" : username, "title" : title, "body" : body})
     #adds a post to the database based on parameters
 
 def getAllPosts():
