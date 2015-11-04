@@ -4,12 +4,16 @@ from pymongo import MongoClient
 client = MongoClient()
 db = client.test_database
 
-def initializeTables():
-    #create the user table in user.db if the table does not already exist
-    db.createCollection("users", {})
+#def initializeTables():
+ #   client = MongoClient()
+  #  db = client.test_database
+#
+ 
+   #create the user table in user.db if the table does not already exist
+ #   db.create_collection("users")
 
     #create the posts table in myDatabase.db if the table does not already exist
-    db.createCollection("posts", {})
+  #  db.create_collection("posts")
 
 
 #authenticate checks the usernames and if the hash of the password matches with the password already in the database
