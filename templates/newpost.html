@@ -1,83 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Add a Story</title>
-  <!-----------------------START HEADER + BOOTSTRAP CODE -------------------------------->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="../static/styles.css">
-  <!-----------------------END HEADER + BOOTSTRAP CODE -------------------------------->
-</head>
+{% extends "blocks.html" %}
+    <!---ADDED BLOCK FOR NAV AND BOOTSTRAP IMPLEMENTATION--->
+    {% block title %}
+        <title>Login</title>
+    {% endblock title %}
+    <!---ADDED BLOCK FOR NAV AND BOOTSTRAP IMPLEMENTATION--->
     
 <body>
-<!-----------------------START NAV CODE -------------------------------->
-	<nav class="navbar navbar-inverse navbar-fixed-top">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-				    <span class="icon-bar"></span>
-				    <span class="icon-bar"></span>
-				    <span class="icon-bar"></span> 
-				</button>
-				<a class="navbar-brand" href="home">RadBlog (beta)</a>
-			</div>
-			<div class="collapse navbar-collapse" id="myNavbar">
-				<ul class="nav navbar-nav">
-					<li><a href="about">About</a></li>
-				</ul>
-				{% if 'username' in session %}
-				<ul class="nav navbar-nav">
-					<li><a href="story">Read the Stories</a></li>
-				</ul>
-				<ul class="nav navbar-nav">
-					<li><a href="newpost">Add A Story</a></li>
-				</ul>
-	      		<ul class="nav navbar-nav navbar-right">
-	      			<li><a href="reset"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
-	      		</ul>
-				<ul class= "nav navbar-nav navbar-right">
-				  <li><a> Hello, {{session['username']}} </a></li>
-				</ul>
-	      		{% else %}
-				<ul class="nav navbar-nav navbar-right">
-					<li><a href="register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-	        		<li><a href="login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-	      		</ul>
-	      		{% endif %}
-			</div>
-		</div>
-	</nav>
-    <!-----------------------END NAV CODE -------------------------------->
+
 	<br><br><br>
-    
-	{% if 'username' in session %}
-	<div class="col-md-offset-4 col-md-4">
-		<h3 class="text-primary text-center">Hello {{session['username']}}</h3>
-		<h4 class="text-muted text-center">Please enter your new post</h4>
-	</div>
-	<form class="form-horizontal" role="form" method="POST">
-		<div class="form-group">
-			<div class="col-md-offset-3 col-md-2">
-				<input maxlength="20" class="form-control" name="nTitle" type="text" placeholder="Title (max 20 characters)">
-			</div>
-		</div>
-		<div class="form-group">
-			<div class="col-md-offset-3 col-md-6">
-				<textarea class="form-control" rows="5" name="nContent" placeholder="Type Here."></textarea>
-			</div>
-		</div>
-		<div class="form-group">
-			<div class="col-md-offset-3 col-md-2">
-				<input type="submit" value="Post" name="button" class="btn btn-default"></button>
-			</div>
-		</div>
-	</form>
-	{% else %}
-	<div class="col-md-offset-4 col-md-4">
-		<h3 class="text-primary text-center">You must be logged in to post!</h3>
-	</div>
-	{% endif %}
+    {% block main %}
+        {% if 'username' in session %}
+        <div class="col-md-offset-4 col-md-4" style="margin-top: 5%; margin-bottom: 1%">
+            <h3 class="text-primary text-center">Hello {{session['username']}}</h3>
+            <h4 class="text-muted text-center">Please enter your new post</h4>
+        </div>
+        <form class="form-horizontal" role="form" method="POST">
+            <div class="form-group">
+                <div class="col-md-offset-3 col-md-2">
+                    <input maxlength="20" class="form-control" name="nTitle" type="text" placeholder="Title (max 20 characters)">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-3 col-md-6">
+                    <textarea class="form-control" rows="5" name="nContent" placeholder="Type Here."></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-3 col-md-2">
+                    <input type="submit" value="Post" name="button" class="btn btn-default"></button>
+                </div>
+            </div>
+        </form>
+        {% else %}
+        <div class="col-md-offset-4 col-md-4">
+            <h3 class="text-primary text-center">You must be logged in to post!</h3>
+        </div>
+        {% endif %}
+    {% endblock main %}
 </body>

@@ -1,67 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Read the Stories</title>
-  <!-----------------------START HEADER + BOOTSTRAP CODE -------------------------------->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="../static/styles.css">
-  <!-----------------------END HEADER + BOOTSTRAP CODE -------------------------------->
-</head>
+{% extends "blocks.html" %}
+    <!---ADDED BLOCK FOR NAV AND BOOTSTRAP IMPLEMENTATION--->
+    {% block title %}
+        <title>Read Stories</title>
+    {% endblock title %}
+    <!---ADDED BLOCK FOR NAV AND BOOTSTRAP IMPLEMENTATION--->
     
 <body>
-    <!-----------------------START NAV CODE -------------------------------->
-	<nav class="navbar navbar-inverse navbar-fixed-top">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-				    <span class="icon-bar"></span>
-				    <span class="icon-bar"></span>
-				    <span class="icon-bar"></span> 
-				</button>
-				<a class="navbar-brand" href="home">RadBlog (beta)</a>
-			</div>
-			<div class="collapse navbar-collapse" id="myNavbar">
-				<ul class="nav navbar-nav">
-					<li><a href="about">About</a></li>
-				</ul>
-				{% if 'username' in session %}
-				<ul class="nav navbar-nav">
-					<li><a href="story">Read the Stories</a></li>
-				</ul>
-				<ul class="nav navbar-nav">
-					<li><a href="newpost">Add A Story</a></li>
-				</ul>
-      	<ul class="nav navbar-nav navbar-right">
-      		<li><a href="reset"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
-      	</ul>
-				<ul class= "nav navbar-nav navbar-right">
-				  <li><a> Hello, {{session['username']}} </a></li>
-				</ul>
-      	{% else %}
-				<ul class="nav navbar-nav navbar-right">
-					<li><a href="register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-        	<li><a href="login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-      	</ul>
-      	{% endif %}
-			</div>
-		</div>
-	</nav>
-    <!-----------------------END NAV CODE -------------------------------->
     
-	<br><br><br>
-	{% if 'username' not in session %}
+    {% block main %}
+        <br><br><br>
+        {% if 'username' not in session %}
 
-	<div class="col-md-offset-4 col-md-4">
-		<h3 class="text-primary text-center">You must be logged in to view stories!</h3>
-	</div>
+        <div class="col-md-offset-4 col-md-4">
+            <h3 class="text-primary text-center">You must be logged in to view stories!</h3>
+        </div>
 
-	{% else %}
+        {% else %}
 
-	{{allposts}}
+        {{allposts}}
 
-	{% endif %}
+        {% endif %}
+    {% endblock main %}
 </body>

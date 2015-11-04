@@ -1,76 +1,38 @@
 {% extends "blocks.html" %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>RadBlog - Hottest Blog on the Net</title>
-  <!-----------------------START HEADER + BOOTSTRAP CODE -------------------------------->
+
+    {% block title %}
+        <title>RadBlog - Hottest Blog on the Net</title>
+    {% endblock title %}
+  <!-----------------------START HEADER + BOOTSTRAP CODE --------------------------------
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="../static/styles.css">
-  <!-----------------------END HEADER + BOOTSTRAP CODE -------------------------------->
-</head>
+  -----------------------END HEADER + BOOTSTRAP CODE -------------------------------->
 
-<body>
-    {%block generalnavbar%}
-    {%endblock generalnavbar%}
-<!-----------------------START NAV CODE --------------------------------
-	<nav class="navbar navbar-inverse navbar-fixed-top">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-				    <span class="icon-bar"></span>
-				    <span class="icon-bar"></span>
-				    <span class="icon-bar"></span> 
-				</button>
-				<a class="navbar-brand" href="home">RadBlog (beta)</a>
-			</div>
-			<div class="collapse navbar-collapse" id="myNavbar">
-				<ul class="nav navbar-nav">
-					<li><a href="about">About</a></li>
-				</ul>
-				{% if 'username' in session %}
-				<ul class="nav navbar-nav">
-					<li><a href="story">Read the Stories</a></li>
-				</ul>
-				<ul class="nav navbar-nav">
-					<li><a href="newpost">Add A Story</a></li>
-				</ul>
-	      		<ul class="nav navbar-nav navbar-right">
-	      			<li><a href="reset"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
-	      		</ul>
-				<ul class= "nav navbar-nav navbar-right">
-				  <li><a> Hello, {{session['username']}} </a></li>
-				</ul>
-	      		{% else %}
-				<ul class="nav navbar-nav navbar-right">
-					<li><a href="register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-	        		<li><a href="login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-	      		</ul>
-	      		{% endif %}
-			</div>
-		</div>
-	</nav>
-    -----------------------END NAV CODE -------------------------------->
-	<br><br><br>
-    
-	{% with messages = get_flashed_messages() %}
-	{% if messages %}
-	<hr>
-	<h4 class="text-muted text-center">
-	{% for message in messages %}
-	{{message}}
-	{% endfor %}	
-	</h4>
-	<hr>
-	{% endif %}
-	{% endwith %}
-	<br><br><br>
-	<div class="transbox col-md-offset-4 col-md-4" style="font-family:Impact, Charcoal, sans-serif;">
-				<h1 class="text-primary text-center">Welcome to RadBlog!</h1>
-				<h3 class="text-warning text-center">The Hottest Blog on the Net</h3>
-	</div>
 
-</body>
+	<br><br><br>
+    {% block main %}
+    <div style="margin-top: 5%">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            <hr>
+                <h4 class="text-muted text-center">
+                    {% for message in messages %}
+                        {{message}}
+                    {% endfor %}	
+                </h4>
+            <hr>
+            {% endif %}
+        {% endwith %}
+
+
+        <div class="transbox col-md-offset-4 col-md-4" style="font-family:Impact, Charcoal, sans-serif;">
+                    <h1 class="text-primary text-center">Welcome to RadBlog!</h1>
+                    <h3 class="text-warning text-center">The Hottest Blog on the Net</h3>
+        </div>
+    </div>
+    {% endblock main %}
+
