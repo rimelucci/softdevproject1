@@ -4,6 +4,7 @@ from pymongo import MongoClient
 client = MongoClient()
 
 def initializeTables():
+    print "hello world";
     #create the user table in user.db if the table does not already exist
 #    db.createCollection("users", {})
 
@@ -18,7 +19,7 @@ def authenticate(username,password):
 #        return True
 #    else:
 #        return False
-    db = connection['Data']
+    db = client['Data']
     hpass = hashlib.sha224(password).hexdigest()
 
     ans = db.users.find({'uname' : username, 'pword' : hpass})
@@ -29,7 +30,7 @@ def authenticate(username,password):
     #passwords stored as hashlib.sha224(<password>).hexdigest()
 
 def registerCheck(username):
-    db = connection['Data']
+    db = client['Data']
     ans = db.users.find({'uname' : username})
     for r in ans:
         return False
@@ -39,21 +40,22 @@ def registerCheck(username):
  
 def register(username,password):
     hpass = hashlib.sha224(password).hexdigest()
-    db = connection['Data']
-    if (!registerCheck(username)):
-        db.users.insert({'uname' : username, 'pword' : hpass})
+    db = client['Data']
+#    if (not registerCheck(username)):
+    db.users.insert({'uname' : username, 'pword' : hpass})
     #check if username is in the database already
     #might put this check somewhere else?
     
 
 
 def makePost(username,title,body):
-    db = connection['Data']
+    db = client['Data']
     db.posts.insert({'uname' : username, 'title' : title, 'body' : body})
     #adds a post to the database based on parameters
 
 def getAllPosts():
-    db = connection['Data']
+    db = client['Data']
+    print db.posts.find()
     return db.posts.find()
     #2d array 
     #first index = row id
